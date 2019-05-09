@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-
 public interface UserRepo extends JpaRepository<User, Integer> {
 
 	@Transactional
@@ -33,5 +32,7 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 	int updatetoken(@Param("userId") int userId, @Param("token") String token);
 
 	User findByUsrMobAndDelStatus(String usrMob, int i);
+
+	User findByUsrMobAndUserPassAndDelStatusAndDeptId(String usrMob, String userPass, int i, int deptId);
 
 }
